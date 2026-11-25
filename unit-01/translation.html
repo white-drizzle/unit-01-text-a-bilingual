@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>U1 翻译作业 · 逐句对照</title>
@@ -15,10 +15,10 @@ h1 { font-size: clamp(27px, 5vw, 36px); margin: 11px 0 2px; line-height: 1.25; }
 .meta { color: var(--muted); margin: 0; font-size: 14px; }
 .toolbar { position: sticky; top: 0; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--line); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 9px; padding-block: 9px; font: 600 13px/1.5 system-ui, sans-serif; }
-.actions a, button { padding: 5px 8px; border-radius: 5px; }
+.actions a, #toggle-answers { padding: 5px 8px; border-radius: 5px; }
 .actions a { text-decoration: none; }
 .actions a:hover { background: #f0e6dc; }
-button { margin-left: auto; background: var(--brand); color: white; border: 1px solid var(--brand); font: inherit; cursor: pointer; }
+#toggle-answers { margin-left: auto; background: var(--brand); color: white; border: 1px solid var(--brand); font: inherit; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 main.wrap { padding-block: 17px 38px; }
 .hint { margin: 0; color: var(--muted); font-size: 14px; }
@@ -33,10 +33,23 @@ h2 { color: #6f3030; font-size: 21px; margin: 0 0 12px; }
 .pair:has(.source:hover) .answer, .pair:has(.source:focus) .answer, .pair.is-selected .answer { background: #fff0b6; }
 .label { display: block; color: var(--muted); font: 650 12px/1.5 system-ui, sans-serif; margin-bottom: 3px; }
 .pair p { margin: 0; }
+.term { display: inline; background: transparent; color: var(--brand); border: 0; padding: 0; font: inherit; font-weight: 650; text-decoration: underline dotted; text-underline-offset: .18em; cursor: help; }
+.term:hover, .term[aria-describedby] { background: #f4e4d6; }
+#word-tooltip { position: fixed; z-index: 3; width: max-content; max-width: min(340px, calc(100vw - 24px)); pointer-events: none; background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 13px; box-shadow: 0 5px 19px #3e2d2429; font: 14px/1.6 system-ui, sans-serif; overflow-wrap: anywhere; }
+#word-tooltip strong { display: block; color: var(--brand); }
+#word-tooltip p { margin: 3px 0 0; }
+.vocabulary h2 { margin-bottom: 4px; }
+.glossary { margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.glossary summary { padding: 10px 14px; cursor: pointer; color: var(--brand); font-weight: 650; }
+.glossary dl { margin: 0; padding: 0 14px 5px; }
+.glossary dt { border-top: 1px solid var(--line); padding-top: 8px; }
+.glossary dd { margin: 0 0 9px; }
+.term-category, .term-context { display: block; color: var(--muted); font-size: 13px; }
 footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 25px; padding-top: 12px; }
-@media (max-width: 420px) { button { margin-left: 0; } .source, .answer { padding-inline: 12px; } }
-@media print { .toolbar, .breadcrumb, .hint { display: none; } .pair { break-inside: avoid; } }
+@media (max-width: 420px) { #toggle-answers { margin-left: 0; } .source, .answer { padding-inline: 12px; } }
+@media print { .toolbar, .breadcrumb, .hint, #word-tooltip { display: none; } .pair { break-inside: avoid; } }
 </style>
+</head><body>
 <header><div class="wrap">
   <nav class="breadcrumb" aria-label="站点导航"><a href="../index.html">单元导航</a><a href="index.html">U1 Text A</a></nav>
   <h1>U1 翻译作业</h1>
@@ -44,17 +57,18 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 </div></header>
 <nav class="toolbar" aria-label="题目导航"><div class="wrap actions">
   <a href="#q1-1">英译中（1）</a><a href="#q1-2">英译中（2）</a><a href="#q2">汉译英</a>
+  <a href="#vocabulary">高阶词汇</a>
   <button type="button" id="toggle-answers" aria-controls="exercises" aria-pressed="true">显示参考译文</button>
 </div></nav>
 <main class="wrap">
-  <p class="hint">悬停、点按或用键盘聚焦原文可高亮对应译文。练习时可隐藏参考译文。</p>
+  <p class="hint">悬停或点按虚线词汇查看语境义。聚焦原文可高亮对应译文，练习时可隐藏参考译文。</p>
   <div id="exercises"><section id="q1-1" aria-labelledby="heading-1-1">
 <h2 id="heading-1-1">第 1 题（1）英译中</h2>
 <ol class="pairs">
 <li class="pair" id="q1-1-s1">
   <div class="source" tabindex="0" aria-describedby="q1-1-s1-answer">
     <span class="label">原文 · 第 1 句</span>
-    <p lang="en">Mencius says that if individuals cultivate humaneness and virtues to overcome moral weakness, then over time, they will become sages and overflow with humaneness.</p>
+    <p lang="en">Mencius says that if individuals cultivate <button type="button" class="term" data-word="humaneness">humaneness</button> and virtues to overcome moral weakness, then over time, they will become <button type="button" class="term" data-word="sages">sages</button> and <button type="button" class="term" data-word="overflow">overflow</button> with <button type="button" class="term" data-word="humaneness">humaneness</button>.</p>
   </div>
   <div class="answer" id="q1-1-s1-answer">
     <span class="label">参考译文</span>
@@ -64,7 +78,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s2">
   <div class="source" tabindex="0" aria-describedby="q1-1-s2-answer">
     <span class="label">原文 · 第 2 句</span>
-    <p lang="en">Mencius also says that human behavior is inconsistent due to conflicting volitions which may hamper virtuous conduct.</p>
+    <p lang="en">Mencius also says that human behavior is inconsistent due to conflicting <button type="button" class="term" data-word="volitions">volitions</button> which may <button type="button" class="term" data-word="hamper">hamper</button> virtuous conduct.</p>
   </div>
   <div class="answer" id="q1-1-s2-answer">
     <span class="label">参考译文</span>
@@ -74,7 +88,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s3">
   <div class="source" tabindex="0" aria-describedby="q1-1-s3-answer">
     <span class="label">原文 · 第 3 句</span>
-    <p lang="en">If people fill their hearts and continuously cultivate virtue, they will consciously act humanely.</p>
+    <p lang="en">If people fill their hearts and continuously cultivate virtue, they will consciously act <button type="button" class="term" data-word="humanely">humanely</button>.</p>
   </div>
   <div class="answer" id="q1-1-s3-answer">
     <span class="label">参考译文</span>
@@ -84,7 +98,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s4">
   <div class="source" tabindex="0" aria-describedby="q1-1-s4-answer">
     <span class="label">原文 · 第 4 句</span>
-    <p lang="en">Similarly, prosperity in the world is sporadic and should be shared in a world that is facing new challenges day in, day out.</p>
+    <p lang="en">Similarly, <button type="button" class="term" data-word="prosperity">prosperity</button> in the world is <button type="button" class="term" data-word="sporadic">sporadic</button> and should be shared in a world that is facing new challenges day in, day out.</p>
   </div>
   <div class="answer" id="q1-1-s4-answer">
     <span class="label">参考译文</span>
@@ -94,7 +108,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s5">
   <div class="source" tabindex="0" aria-describedby="q1-1-s5-answer">
     <span class="label">原文 · 第 5 句</span>
-    <p lang="en">The Community with a Shared Future for Mankind concept seeks to ensure the even distribution of humaneness through institutions such as the United Nations, which safeguards and applies humaneness across the world without selectivity.</p>
+    <p lang="en">The Community with a Shared Future for Mankind concept seeks to ensure the even distribution of <button type="button" class="term" data-word="humaneness">humaneness</button> through institutions such as the United Nations, which <button type="button" class="term" data-word="safeguards">safeguards</button> and applies <button type="button" class="term" data-word="humaneness">humaneness</button> across the world without <button type="button" class="term" data-word="selectivity">selectivity</button>.</p>
   </div>
   <div class="answer" id="q1-1-s5-answer">
     <span class="label">参考译文</span>
@@ -104,7 +118,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s6">
   <div class="source" tabindex="0" aria-describedby="q1-1-s6-answer">
     <span class="label">原文 · 第 6 句</span>
-    <p lang="en">The Community with a Shared Future for Mankind concept insists that there should be continuous dialogue and inquiry to define the rules of engagement between nations, in an international organization, at both multilateral and bilateral levels.</p>
+    <p lang="en">The Community with a Shared Future for Mankind concept insists that there should be continuous dialogue and inquiry to define the rules of engagement between nations, in an international organization, at both <button type="button" class="term" data-word="multilateral">multilateral</button> and <button type="button" class="term" data-word="bilateral">bilateral</button> levels.</p>
   </div>
   <div class="answer" id="q1-1-s6-answer">
     <span class="label">参考译文</span>
@@ -114,7 +128,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-1-s7">
   <div class="source" tabindex="0" aria-describedby="q1-1-s7-answer">
     <span class="label">原文 · 第 7 句</span>
-    <p lang="en">Mencius’ concept of humaneness leads towards the cultivation of virtue, while the Community with a Shared Future for Mankind concept leads towards continuous dialogue, making the two concepts congruous.</p>
+    <p lang="en">Mencius’ concept of <button type="button" class="term" data-word="humaneness">humaneness</button> leads towards the cultivation of virtue, while the Community with a Shared Future for Mankind concept leads towards continuous dialogue, making the two concepts <button type="button" class="term" data-word="congruous">congruous</button>.</p>
   </div>
   <div class="answer" id="q1-1-s7-answer">
     <span class="label">参考译文</span>
@@ -129,7 +143,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-2-s1">
   <div class="source" tabindex="0" aria-describedby="q1-2-s1-answer">
     <span class="label">原文 · 第 1 句</span>
-    <p lang="en">This proposition opposes the cold-war mentality that rests on the doctrine of the zero-sum game and the winner-takes-all system and the law of jungle where power determines everything.</p>
+    <p lang="en">This proposition opposes the cold-war mentality that rests on the <button type="button" class="term" data-word="doctrine">doctrine</button> of the <button type="button" class="term" data-word="zero-sum">zero-sum</button> game and the <button type="button" class="term" data-word="winner-takes-all">winner-takes-all</button> system and the <button type="button" class="term" data-word="law of jungle">law of jungle</button> where power determines everything.</p>
   </div>
   <div class="answer" id="q1-2-s1-answer">
     <span class="label">参考译文</span>
@@ -139,7 +153,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-2-s2">
   <div class="source" tabindex="0" aria-describedby="q1-2-s2-answer">
     <span class="label">原文 · 第 2 句</span>
-    <p lang="en">China proposes that all countries work together to turn pressure into impetus, turn crises into opportunities and replace confrontation with cooperation and exclusive gain with mutual benefit.</p>
+    <p lang="en">China proposes that all countries work together to turn pressure into <button type="button" class="term" data-word="impetus">impetus</button>, turn crises into opportunities and replace confrontation with cooperation and exclusive gain with mutual benefit.</p>
   </div>
   <div class="answer" id="q1-2-s2-answer">
     <span class="label">参考译文</span>
@@ -149,7 +163,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair new-paragraph" id="q1-2-s3">
   <div class="source" tabindex="0" aria-describedby="q1-2-s3-answer">
     <span class="label">原文 · 第 3 句</span>
-    <p lang="en">What kind of international order and governance system best suits the world and the people of all countries?</p>
+    <p lang="en">What kind of international order and <button type="button" class="term" data-word="governance">governance</button> system best suits the world and the people of all countries?</p>
   </div>
   <div class="answer" id="q1-2-s3-answer">
     <span class="label">参考译文</span>
@@ -169,7 +183,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <li class="pair" id="q1-2-s5">
   <div class="source" tabindex="0" aria-describedby="q1-2-s5-answer">
     <span class="label">原文 · 第 5 句</span>
-    <p lang="en">The proposition to build a Community with a Shared Future for Mankind underlines democracy in international relations and excludes hegemony or monopoly of power over the world by a single country or a small party of countries.</p>
+    <p lang="en">The proposition to build a Community with a Shared Future for Mankind underlines democracy in international relations and excludes <button type="button" class="term" data-word="hegemony">hegemony</button> or <button type="button" class="term" data-word="monopoly">monopoly</button> of power over the world by a single country or a small party of countries.</p>
   </div>
   <div class="answer" id="q1-2-s5-answer">
     <span class="label">参考译文</span>
@@ -198,7 +212,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   </div>
   <div class="answer" id="q2-s1-answer">
     <span class="label">参考译文</span>
-    <p lang="en">In promoting equality and mutual trust, we should uphold the purposes and principles of the Charter of the United Nations and support equality among all countries, regardless of their size, strength or wealth.</p>
+    <p lang="en">In promoting equality and mutual trust, we should <button type="button" class="term" data-word="uphold">uphold</button> the purposes and principles of the Charter of the United Nations and support equality among all countries, regardless of their size, strength or wealth.</p>
   </div>
 </li>
 <li class="pair" id="q2-s2">
@@ -208,7 +222,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   </div>
   <div class="answer" id="q2-s2-answer">
     <span class="label">参考译文</span>
-    <p lang="en">We should promote democracy in international relations, respect sovereignty, jointly uphold security, and safeguard world peace and stability.</p>
+    <p lang="en">We should promote democracy in international relations, respect <button type="button" class="term" data-word="sovereignty">sovereignty</button>, jointly <button type="button" class="term" data-word="uphold">uphold</button> security, and <button type="button" class="term" data-word="safeguard">safeguard</button> world peace and stability.</p>
   </div>
 </li>
 <li class="pair" id="q2-s3">
@@ -218,7 +232,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   </div>
   <div class="answer" id="q2-s3-answer">
     <span class="label">参考译文</span>
-    <p lang="en">In promoting inclusiveness and mutual learning, we should respect the diversity of civilizations and development paths, respect and safeguard people&#x27;s right to independently choose their social systems and development paths, learn from others to make up for our own shortcomings, and advance human civilization.</p>
+    <p lang="en">In promoting <button type="button" class="term" data-word="inclusiveness">inclusiveness</button> and mutual learning, we should respect the diversity of civilizations and development paths, respect and <button type="button" class="term" data-word="safeguard">safeguard</button> people&#x27;s right to independently choose their social systems and development paths, learn from others to make up for our own shortcomings, and advance human civilization.</p>
   </div>
 </li>
 <li class="pair" id="q2-s4">
@@ -238,7 +252,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   </div>
   <div class="answer" id="q2-s5-answer">
     <span class="label">参考译文</span>
-    <p lang="en">While pursuing its own interests, a country should take into account the legitimate concerns of other countries; while pursuing its own development, it should promote the common development of all countries.</p>
+    <p lang="en">While pursuing its own interests, a country should take into account the <button type="button" class="term" data-word="legitimate">legitimate</button> concerns of other countries; while pursuing its own development, it should promote the common development of all countries.</p>
   </div>
 </li>
 <li class="pair" id="q2-s6">
@@ -248,20 +262,117 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   </div>
   <div class="answer" id="q2-s6-answer">
     <span class="label">参考译文</span>
-    <p lang="en">All countries should establish a more equitable and balanced global development partnership, face difficulties together, share rights and responsibilities, and advance the common interests of humanity.</p>
+    <p lang="en">All countries should establish a more <button type="button" class="term" data-word="equitable">equitable</button> and balanced global development partnership, face difficulties together, share rights and responsibilities, and advance the common interests of humanity.</p>
   </div>
 </li>
 </ol>
 </section></div>
+  <section class="vocabulary" id="vocabulary" aria-labelledby="vocabulary-heading">
+    <h2 id="vocabulary-heading">高阶词汇</h2>
+    <p class="hint">六级词、六级词派生和四级外补充词义按本页语境整理。</p>
+    <details class="glossary"><summary>查看词汇表（27 项）</summary><dl><dt><strong lang="en">bilateral</strong><span class="term-category">六级词</span></dt>
+<dd>adj. 双边的<span class="term-context">at bilateral levels：在双边层面；bi- 表示“两”。</span></dd>
+<dt><strong lang="en">congruous</strong><span class="term-category">四级外补充</span></dt>
+<dd>adj. 相合的；相通的；相称的<span class="term-context">making the two concepts congruous：使两种理念具有相通之处。</span></dd>
+<dt><strong lang="en">doctrine</strong><span class="term-category">六级词</span></dt>
+<dd>n. 学说；信条；原则<span class="term-context">the doctrine of the zero-sum game：零和博弈的观念或信条。</span></dd>
+<dt><strong lang="en">equitable</strong><span class="term-category">六级词</span></dt>
+<dd>adj. 公平的；公正的<span class="term-context">an equitable partnership：公平的伙伴关系；侧重公正合理，不只表示数量相等。equity 的列明派生词。</span></dd>
+<dt><strong lang="en">governance</strong><span class="term-category">四级外补充</span></dt>
+<dd>n. 治理；管理公共事务的方式<span class="term-context">governance system：治理体系。govern 属四级，此处将学术名词 governance 作为补充词汇。</span></dd>
+<dt><strong lang="en">hamper</strong><span class="term-category">六级词</span></dt>
+<dd>v. 阻碍；妨碍<span class="term-context">hamper virtuous conduct：妨碍合乎德性的行为。</span></dd>
+<dt><strong lang="en">hegemony</strong><span class="term-category">四级外补充</span></dt>
+<dd>n. 霸权；支配地位<span class="term-context">excludes hegemony：反对霸权；本文指一国或少数国家支配国际事务。</span></dd>
+<dt><strong lang="en">humanely</strong><span class="term-category">六级词派生</span></dt>
+<dd>adv. 仁爱地；人道地<span class="term-context">humane 的副词形式；act humanely 指以仁爱待人。按六级词族的派生形式标注。</span></dd>
+<dt><strong lang="en">humaneness</strong><span class="term-category">六级词派生</span></dt>
+<dd>n. 仁爱；人道精神<span class="term-context">humane（仁爱的；人道的）加 -ness 构成的名词；这里对应孟子的仁爱观。按六级词族的派生形式标注。</span></dd>
+<dt><strong lang="en">impetus</strong><span class="term-category">六级词</span></dt>
+<dd>n. 动力；推动力<span class="term-context">turn pressure into impetus：把压力转化为动力。</span></dd>
+<dt><strong lang="en">inclusiveness</strong><span class="term-category">四级外补充</span></dt>
+<dd>n. 包容性；兼容并蓄<span class="term-context">promoting inclusiveness and mutual learning：促进包容与互学互鉴。inclusive 属四级词族，此抽象主题词作为补充。</span></dd>
+<dt><strong lang="en">law of jungle</strong><span class="term-category">四级外补充 · 原形 law of the jungle</span></dt>
+<dd>n. phrase 丛林法则；弱肉强食<span class="term-context">固定表达补充，指强者凭实力支配弱者。原句写作 law of jungle；常见完整形式是 the law of the jungle。</span></dd>
+<dt><strong lang="en">legitimate</strong><span class="term-category">六级词</span></dt>
+<dd>adj. 合理的；正当的；合法的<span class="term-context">legitimate concerns：合理关切。这里侧重诉求或担忧的正当性。</span></dd>
+<dt><strong lang="en">monopoly</strong><span class="term-category">六级词</span></dt>
+<dd>n. 垄断；独占<span class="term-context">a monopoly of power：对权力的垄断。</span></dd>
+<dt><strong lang="en">multilateral</strong><span class="term-category">六级词</span></dt>
+<dd>adj. 多边的<span class="term-context">at multilateral levels：在多边层面，与 bilateral（双边的）相对。</span></dd>
+<dt><strong lang="en">overflow</strong><span class="term-category">六级词</span></dt>
+<dd>v. 充满；洋溢；溢出<span class="term-context">overflow with humaneness：充盈仁爱。</span></dd>
+<dt><strong lang="en">prosperity</strong><span class="term-category">六级词</span></dt>
+<dd>n. 繁荣；兴盛<span class="term-context">本文讨论繁荣在世界各地分布不均，以及共享繁荣的必要性。prosper 的列明派生词。</span></dd>
+<dt><strong lang="en">safeguard</strong><span class="term-category">六级词</span></dt>
+<dd>v. 维护；保护<span class="term-context">safeguard world peace / people’s right：维护世界和平／人民的权利。</span></dd>
+<dt><strong lang="en">safeguards</strong><span class="term-category">六级词 · 原形 safeguard</span></dt>
+<dd>v. 维护；保护<span class="term-context">safeguard 的第三人称单数，此处作谓语，指维护仁爱。</span></dd>
+<dt><strong lang="en">sages</strong><span class="term-category">四级外补充 · 原形 sage</span></dt>
+<dd>n. pl. 圣贤；智者<span class="term-context">sage 的复数。本文指修养达到高尚境界的人，不取植物“鼠尾草”之义。</span></dd>
+<dt><strong lang="en">selectivity</strong><span class="term-category">四级外补充</span></dt>
+<dd>n. 选择性；有选择的区别对待<span class="term-context">without selectivity：不作选择性的区别对待。selective 在四级词族中，此抽象名词按语境补充。</span></dd>
+<dt><strong lang="en">sovereignty</strong><span class="term-category">六级词</span></dt>
+<dd>n. 主权<span class="term-context">respect sovereignty：尊重主权。sovereign 的列明派生词。</span></dd>
+<dt><strong lang="en">sporadic</strong><span class="term-category">四级外补充</span></dt>
+<dd>adj. 零星的；分布不均的；偶发的<span class="term-context">prosperity is sporadic 在此指繁荣并非普遍、均衡地存在，而不单指时间上偶尔发生。</span></dd>
+<dt><strong lang="en">uphold</strong><span class="term-category">六级词</span></dt>
+<dd>v. 遵守；维护；支持<span class="term-context">uphold purposes and principles：遵守宗旨和原则；uphold security：维护安全。</span></dd>
+<dt><strong lang="en">volitions</strong><span class="term-category">四级外补充 · 原形 volition</span></dt>
+<dd>n. pl. 意志；意愿<span class="term-context">volition 的复数；conflicting volitions 指相互冲突的意志或意愿。</span></dd>
+<dt><strong lang="en">winner-takes-all</strong><span class="term-category">四级外补充</span></dt>
+<dd>adj. 赢家通吃的<span class="term-context">固定表达补充。winner-takes-all system：赢家通吃的制度；获胜者独享利益。</span></dd>
+<dt><strong lang="en">zero-sum</strong><span class="term-category">四级外补充</span></dt>
+<dd>adj. 零和的<span class="term-context">固定表达补充。a zero-sum game：零和博弈，一方所得被视为另一方所失。</span></dd></dl></details>
+  </section>
   <footer>题面据教材校录，参考译文结合配套作业答案按句整理。</footer>
 </main>
+<div id="word-tooltip" role="tooltip" hidden><strong></strong><p></p></div>
+<script id="word-definitions" type="application/json">{"bilateral": {"heading": "adj. 双边的", "note": "at bilateral levels：在双边层面；bi- 表示“两”。", "category": "六级词"}, "congruous": {"heading": "adj. 相合的；相通的；相称的", "note": "making the two concepts congruous：使两种理念具有相通之处。", "category": "四级外补充"}, "doctrine": {"heading": "n. 学说；信条；原则", "note": "the doctrine of the zero-sum game：零和博弈的观念或信条。", "category": "六级词"}, "equitable": {"heading": "adj. 公平的；公正的", "note": "an equitable partnership：公平的伙伴关系；侧重公正合理，不只表示数量相等。equity 的列明派生词。", "category": "六级词"}, "governance": {"heading": "n. 治理；管理公共事务的方式", "note": "governance system：治理体系。govern 属四级，此处将学术名词 governance 作为补充词汇。", "category": "四级外补充"}, "hamper": {"heading": "v. 阻碍；妨碍", "note": "hamper virtuous conduct：妨碍合乎德性的行为。", "category": "六级词"}, "hegemony": {"heading": "n. 霸权；支配地位", "note": "excludes hegemony：反对霸权；本文指一国或少数国家支配国际事务。", "category": "四级外补充"}, "humanely": {"heading": "adv. 仁爱地；人道地", "note": "humane 的副词形式；act humanely 指以仁爱待人。按六级词族的派生形式标注。", "category": "六级词派生"}, "humaneness": {"heading": "n. 仁爱；人道精神", "note": "humane（仁爱的；人道的）加 -ness 构成的名词；这里对应孟子的仁爱观。按六级词族的派生形式标注。", "category": "六级词派生"}, "impetus": {"heading": "n. 动力；推动力", "note": "turn pressure into impetus：把压力转化为动力。", "category": "六级词"}, "inclusiveness": {"heading": "n. 包容性；兼容并蓄", "note": "promoting inclusiveness and mutual learning：促进包容与互学互鉴。inclusive 属四级词族，此抽象主题词作为补充。", "category": "四级外补充"}, "law of jungle": {"heading": "n. phrase 丛林法则；弱肉强食", "note": "固定表达补充，指强者凭实力支配弱者。原句写作 law of jungle；常见完整形式是 the law of the jungle。", "category": "四级外补充"}, "legitimate": {"heading": "adj. 合理的；正当的；合法的", "note": "legitimate concerns：合理关切。这里侧重诉求或担忧的正当性。", "category": "六级词"}, "monopoly": {"heading": "n. 垄断；独占", "note": "a monopoly of power：对权力的垄断。", "category": "六级词"}, "multilateral": {"heading": "adj. 多边的", "note": "at multilateral levels：在多边层面，与 bilateral（双边的）相对。", "category": "六级词"}, "overflow": {"heading": "v. 充满；洋溢；溢出", "note": "overflow with humaneness：充盈仁爱。", "category": "六级词"}, "prosperity": {"heading": "n. 繁荣；兴盛", "note": "本文讨论繁荣在世界各地分布不均，以及共享繁荣的必要性。prosper 的列明派生词。", "category": "六级词"}, "safeguard": {"heading": "v. 维护；保护", "note": "safeguard world peace / people’s right：维护世界和平／人民的权利。", "category": "六级词"}, "safeguards": {"heading": "v. 维护；保护", "note": "safeguard 的第三人称单数，此处作谓语，指维护仁爱。", "category": "六级词"}, "sages": {"heading": "n. pl. 圣贤；智者", "note": "sage 的复数。本文指修养达到高尚境界的人，不取植物“鼠尾草”之义。", "category": "四级外补充"}, "selectivity": {"heading": "n. 选择性；有选择的区别对待", "note": "without selectivity：不作选择性的区别对待。selective 在四级词族中，此抽象名词按语境补充。", "category": "四级外补充"}, "sovereignty": {"heading": "n. 主权", "note": "respect sovereignty：尊重主权。sovereign 的列明派生词。", "category": "六级词"}, "sporadic": {"heading": "adj. 零星的；分布不均的；偶发的", "note": "prosperity is sporadic 在此指繁荣并非普遍、均衡地存在，而不单指时间上偶尔发生。", "category": "四级外补充"}, "uphold": {"heading": "v. 遵守；维护；支持", "note": "uphold purposes and principles：遵守宗旨和原则；uphold security：维护安全。", "category": "六级词"}, "volitions": {"heading": "n. pl. 意志；意愿", "note": "volition 的复数；conflicting volitions 指相互冲突的意志或意愿。", "category": "四级外补充"}, "winner-takes-all": {"heading": "adj. 赢家通吃的", "note": "固定表达补充。winner-takes-all system：赢家通吃的制度；获胜者独享利益。", "category": "四级外补充"}, "zero-sum": {"heading": "adj. 零和的", "note": "固定表达补充。a zero-sum game：零和博弈，一方所得被视为另一方所失。", "category": "四级外补充"}}</script>
 <script>
 const button = document.getElementById("toggle-answers");
 const exercises = document.getElementById("exercises");
 const answers = [...exercises.querySelectorAll(".answer")];
 let selectedPair = null;
+const definitions = JSON.parse(document.getElementById("word-definitions").textContent);
+const tip = document.getElementById("word-tooltip");
+let activeWord = null;
+
+function hideWord() {
+  if (activeWord) activeWord.removeAttribute("aria-describedby");
+  activeWord = null;
+  tip.hidden = true;
+}
+
+function showWord(word) {
+  if (activeWord === word) return;
+  hideWord();
+  const entry = definitions[word.dataset.word];
+  if (!entry) return;
+  activeWord = word;
+  tip.querySelector("strong").textContent = `${word.textContent} · ${entry.heading}`;
+  tip.querySelector("p").textContent = `${entry.category} · ${entry.note}`;
+  tip.hidden = false;
+  word.setAttribute("aria-describedby", tip.id);
+  const rect = word.getBoundingClientRect();
+  const left = Math.min(Math.max(12, rect.left), innerWidth - tip.offsetWidth - 12);
+  const top = rect.bottom + tip.offsetHeight + 18 <= innerHeight ? rect.bottom + 6 : rect.top - tip.offsetHeight - 6;
+  tip.style.left = `${left}px`;
+  tip.style.top = `${Math.max(6, top)}px`;
+}
+
+exercises.querySelectorAll(".term").forEach(word => {
+  word.addEventListener("pointerenter", event => { if (event.pointerType !== "touch") showWord(word); });
+  word.addEventListener("pointerleave", () => { if (activeWord === word && document.activeElement !== word) hideWord(); });
+  word.addEventListener("focus", () => showWord(word));
+  word.addEventListener("blur", () => { if (activeWord === word) hideWord(); });
+});
+document.addEventListener("keydown", event => { if (event.key === "Escape") hideWord(); });
+window.addEventListener("scroll", hideWord, { passive: true });
+window.addEventListener("resize", hideWord);
 
 button.addEventListener("click", () => {
+  hideWord();
   const show = button.getAttribute("aria-pressed") !== "true";
   button.setAttribute("aria-pressed", String(show));
   for (const answer of answers) {
@@ -273,10 +384,13 @@ button.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
+  const word = event.target.closest(".term");
+  if (word) showWord(word);
+  else hideWord();
   const source = event.target.closest(".source");
   if (selectedPair) selectedPair.classList.remove("is-selected");
   selectedPair = source ? source.parentElement : null;
   if (selectedPair) selectedPair.classList.add("is-selected");
 });
 </script>
-</html>
+</body></html>
