@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U1 翻译作业 · 逐句对照</title>
+<style>
+:root { color-scheme: light; --ink: #242322; --muted: #6b6059; --brand: #8b3a3a; --line: #e4dfd7; --paper: #fdfbf7; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.75 "Noto Serif SC", "Songti SC", Georgia, serif; }
+.wrap { max-width: 860px; margin: auto; padding-inline: clamp(16px, 4vw, 30px); }
+header { background: #f5f1ea; border-bottom: 1px solid var(--line); padding-block: 29px 23px; }
+.breadcrumb { display: flex; flex-wrap: wrap; gap: 6px 20px; font: 600 14px/1.5 system-ui, sans-serif; }
+a { color: var(--brand); text-underline-offset: .18em; }
+h1 { font-size: clamp(27px, 5vw, 36px); margin: 11px 0 2px; line-height: 1.25; }
+.meta { color: var(--muted); margin: 0; font-size: 14px; }
+.toolbar { position: sticky; top: 0; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--line); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 9px; padding-block: 9px; font: 600 13px/1.5 system-ui, sans-serif; }
+.actions a, button { padding: 5px 8px; border-radius: 5px; }
+.actions a { text-decoration: none; }
+.actions a:hover { background: #f0e6dc; }
+button { margin-left: auto; background: var(--brand); color: white; border: 1px solid var(--brand); font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+main.wrap { padding-block: 17px 38px; }
+.hint { margin: 0; color: var(--muted); font-size: 14px; }
+section { scroll-margin-top: 94px; margin-top: 26px; }
+h2 { color: #6f3030; font-size: 21px; margin: 0 0 12px; }
+.pairs { margin: 0; padding: 0; list-style: none; }
+.pair { overflow: visible; border: 1px solid var(--line); border-radius: 8px; background: #fff; margin-bottom: 10px; scroll-margin-top: 94px; }
+.pair.new-paragraph { margin-top: 21px; }
+.source, .answer { padding: 11px 16px; }
+.source { cursor: pointer; border-radius: 8px; }
+.answer { border-top: 1px solid var(--line); border-radius: 0 0 8px 8px; background: #faf6ef; }
+.pair:has(.source:hover) .answer, .pair:has(.source:focus) .answer, .pair.is-selected .answer { background: #fff0b6; }
+.label { display: block; color: var(--muted); font: 650 12px/1.5 system-ui, sans-serif; margin-bottom: 3px; }
+.pair p { margin: 0; }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 25px; padding-top: 12px; }
+@media (max-width: 420px) { button { margin-left: 0; } .source, .answer { padding-inline: 12px; } }
+@media print { .toolbar, .breadcrumb, .hint { display: none; } .pair { break-inside: avoid; } }
+</style>
+<header><div class="wrap">
+  <nav class="breadcrumb" aria-label="站点导航"><a href="../index.html">单元导航</a><a href="index.html">U1 Text A</a></nav>
+  <h1>U1 翻译作业</h1>
+  <p class="meta">Translation · 教材第 13–15 页</p>
+</div></header>
+<nav class="toolbar" aria-label="题目导航"><div class="wrap actions">
+  <a href="#q1-1">英译中（1）</a><a href="#q1-2">英译中（2）</a><a href="#q2">汉译英</a>
+  <button type="button" id="toggle-answers" aria-controls="exercises" aria-pressed="true">显示参考译文</button>
+</div></nav>
+<main class="wrap">
+  <p class="hint">悬停、点按或用键盘聚焦原文可高亮对应译文。练习时可隐藏参考译文。</p>
+  <div id="exercises"><section id="q1-1" aria-labelledby="heading-1-1">
+<h2 id="heading-1-1">第 1 题（1）英译中</h2>
+<ol class="pairs">
+<li class="pair" id="q1-1-s1">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s1-answer">
+    <span class="label">原文 · 第 1 句</span>
+    <p lang="en">Mencius says that if individuals cultivate humaneness and virtues to overcome moral weakness, then over time, they will become sages and overflow with humaneness.</p>
+  </div>
+  <div class="answer" id="q1-1-s1-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">孟子说，如果人们通过培育仁爱与德性来克服道德弱点，那么随着时间的推移，他们就会成为圣贤，内心充盈仁爱。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s2">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s2-answer">
+    <span class="label">原文 · 第 2 句</span>
+    <p lang="en">Mencius also says that human behavior is inconsistent due to conflicting volitions which may hamper virtuous conduct.</p>
+  </div>
+  <div class="answer" id="q1-1-s2-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">孟子还指出，相互冲突的意志可能妨碍有德性的行为，因此人的行为会表现得不一致。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s3">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s3-answer">
+    <span class="label">原文 · 第 3 句</span>
+    <p lang="en">If people fill their hearts and continuously cultivate virtue, they will consciously act humanely.</p>
+  </div>
+  <div class="answer" id="q1-1-s3-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">如果人们不断充实内心、修养德性，就会自觉地以仁爱待人。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s4">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s4-answer">
+    <span class="label">原文 · 第 4 句</span>
+    <p lang="en">Similarly, prosperity in the world is sporadic and should be shared in a world that is facing new challenges day in, day out.</p>
+  </div>
+  <div class="answer" id="q1-1-s4-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">同样，在一个日复一日面临新挑战的世界中，世界各地的繁荣分布并不均衡，应当为人们所共享。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s5">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s5-answer">
+    <span class="label">原文 · 第 5 句</span>
+    <p lang="en">The Community with a Shared Future for Mankind concept seeks to ensure the even distribution of humaneness through institutions such as the United Nations, which safeguards and applies humaneness across the world without selectivity.</p>
+  </div>
+  <div class="answer" id="q1-1-s5-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">人类命运共同体理念力图通过联合国等机构确保仁爱得到普遍而均等的施行；这些机构在世界各地维护并践行仁爱，不作选择性的区别对待。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s6">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s6-answer">
+    <span class="label">原文 · 第 6 句</span>
+    <p lang="en">The Community with a Shared Future for Mankind concept insists that there should be continuous dialogue and inquiry to define the rules of engagement between nations, in an international organization, at both multilateral and bilateral levels.</p>
+  </div>
+  <div class="answer" id="q1-1-s6-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">人类命运共同体理念强调，应在国际组织内于多边和双边两个层面持续开展对话与探讨，以明确国家间的交往规则。</p>
+  </div>
+</li>
+<li class="pair" id="q1-1-s7">
+  <div class="source" tabindex="0" aria-describedby="q1-1-s7-answer">
+    <span class="label">原文 · 第 7 句</span>
+    <p lang="en">Mencius’ concept of humaneness leads towards the cultivation of virtue, while the Community with a Shared Future for Mankind concept leads towards continuous dialogue, making the two concepts congruous.</p>
+  </div>
+  <div class="answer" id="q1-1-s7-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">孟子的仁爱观导向德性的培育，而人类命运共同体理念导向持续对话，因此两种理念具有相通之处。</p>
+  </div>
+</li>
+</ol>
+</section>
+<section id="q1-2" aria-labelledby="heading-1-2">
+<h2 id="heading-1-2">第 1 题（2）英译中</h2>
+<ol class="pairs">
+<li class="pair" id="q1-2-s1">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s1-answer">
+    <span class="label">原文 · 第 1 句</span>
+    <p lang="en">This proposition opposes the cold-war mentality that rests on the doctrine of the zero-sum game and the winner-takes-all system and the law of jungle where power determines everything.</p>
+  </div>
+  <div class="answer" id="q1-2-s1-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">这一主张反对冷战思维；这种思维以零和博弈、赢家通吃的制度以及强权决定一切的丛林法则为依据。</p>
+  </div>
+</li>
+<li class="pair" id="q1-2-s2">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s2-answer">
+    <span class="label">原文 · 第 2 句</span>
+    <p lang="en">China proposes that all countries work together to turn pressure into impetus, turn crises into opportunities and replace confrontation with cooperation and exclusive gain with mutual benefit.</p>
+  </div>
+  <div class="answer" id="q1-2-s2-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">中国主张各国携手将压力转化为动力、将危机转化为机遇，以合作取代对抗，以互利取代独享利益。</p>
+  </div>
+</li>
+<li class="pair new-paragraph" id="q1-2-s3">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s3-answer">
+    <span class="label">原文 · 第 3 句</span>
+    <p lang="en">What kind of international order and governance system best suits the world and the people of all countries?</p>
+  </div>
+  <div class="answer" id="q1-2-s3-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">什么样的国际秩序和治理体系最适合世界及各国人民？</p>
+  </div>
+</li>
+<li class="pair" id="q1-2-s4">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s4-answer">
+    <span class="label">原文 · 第 4 句</span>
+    <p lang="en">This is something that should be decided by all countries through consultation, and not by a single country or small minority of countries.</p>
+  </div>
+  <div class="answer" id="q1-2-s4-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">这一问题应当由各国通过协商共同决定，而不是由单一国家或少数国家决定。</p>
+  </div>
+</li>
+<li class="pair" id="q1-2-s5">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s5-answer">
+    <span class="label">原文 · 第 5 句</span>
+    <p lang="en">The proposition to build a Community with a Shared Future for Mankind underlines democracy in international relations and excludes hegemony or monopoly of power over the world by a single country or a small party of countries.</p>
+  </div>
+  <div class="answer" id="q1-2-s5-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">构建人类命运共同体的主张强调国际关系民主化，反对一国或少数国家称霸世界或垄断世界权力。</p>
+  </div>
+</li>
+<li class="pair" id="q1-2-s6">
+  <div class="source" tabindex="0" aria-describedby="q1-2-s6-answer">
+    <span class="label">原文 · 第 6 句</span>
+    <p lang="en">All members of the international community must adopt international rules, all countries involved must manage international affairs and all individuals on this planet should share the fruits of development.</p>
+  </div>
+  <div class="answer" id="q1-2-s6-answer">
+    <span class="label">参考译文</span>
+    <p lang="zh-CN">国际社会所有成员都必须共同遵循国际规则，参与各国都必须共同处理国际事务，地球上的所有人都应当共享发展成果。</p>
+  </div>
+</li>
+</ol>
+</section>
+<section id="q2" aria-labelledby="heading-2">
+<h2 id="heading-2">第 2 题 汉译英</h2>
+<ol class="pairs">
+<li class="pair" id="q2-s1">
+  <div class="source" tabindex="0" aria-describedby="q2-s1-answer">
+    <span class="label">原文 · 第 1 句</span>
+    <p lang="zh-CN">在促进平等和互信方面，我们应遵守《联合国宪章》的宗旨和原则，支持各国间的平等，无论大小、强弱、贫富。</p>
+  </div>
+  <div class="answer" id="q2-s1-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">In promoting equality and mutual trust, we should uphold the purposes and principles of the Charter of the United Nations and support equality among all countries, regardless of their size, strength or wealth.</p>
+  </div>
+</li>
+<li class="pair" id="q2-s2">
+  <div class="source" tabindex="0" aria-describedby="q2-s2-answer">
+    <span class="label">原文 · 第 2 句</span>
+    <p lang="zh-CN">我们应推动国际关系民主化，尊重主权，共同维护安全，维护世界和平与稳定。</p>
+  </div>
+  <div class="answer" id="q2-s2-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">We should promote democracy in international relations, respect sovereignty, jointly uphold security, and safeguard world peace and stability.</p>
+  </div>
+</li>
+<li class="pair" id="q2-s3">
+  <div class="source" tabindex="0" aria-describedby="q2-s3-answer">
+    <span class="label">原文 · 第 3 句</span>
+    <p lang="zh-CN">在促进包容性和互学互鉴方面，我们应尊重不同文明和发展道路的多样性，尊重和维护人民自主选择社会制度和发展道路的权利，借鉴他人以弥补自身不足，推进人类文明进步。</p>
+  </div>
+  <div class="answer" id="q2-s3-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">In promoting inclusiveness and mutual learning, we should respect the diversity of civilizations and development paths, respect and safeguard people&#x27;s right to independently choose their social systems and development paths, learn from others to make up for our own shortcomings, and advance human civilization.</p>
+  </div>
+</li>
+<li class="pair" id="q2-s4">
+  <div class="source" tabindex="0" aria-describedby="q2-s4-answer">
+    <span class="label">原文 · 第 4 句</span>
+    <p lang="zh-CN">在促进互利合作方面，我们应增强人类命运共同体意识。</p>
+  </div>
+  <div class="answer" id="q2-s4-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">In promoting mutually beneficial cooperation, we should strengthen our awareness of a community with a shared future for mankind.</p>
+  </div>
+</li>
+<li class="pair" id="q2-s5">
+  <div class="source" tabindex="0" aria-describedby="q2-s5-answer">
+    <span class="label">原文 · 第 5 句</span>
+    <p lang="zh-CN">一个国家在追求自身利益时应考虑他国的合理关切；在推进自身发展时应促进所有国家的共同发展。</p>
+  </div>
+  <div class="answer" id="q2-s5-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">While pursuing its own interests, a country should take into account the legitimate concerns of other countries; while pursuing its own development, it should promote the common development of all countries.</p>
+  </div>
+</li>
+<li class="pair" id="q2-s6">
+  <div class="source" tabindex="0" aria-describedby="q2-s6-answer">
+    <span class="label">原文 · 第 6 句</span>
+    <p lang="zh-CN">各国应建立更加平等和平衡的全球发展伙伴关系，共同面对困难，共享权利和责任，提升人类共同利益。</p>
+  </div>
+  <div class="answer" id="q2-s6-answer">
+    <span class="label">参考译文</span>
+    <p lang="en">All countries should establish a more equitable and balanced global development partnership, face difficulties together, share rights and responsibilities, and advance the common interests of humanity.</p>
+  </div>
+</li>
+</ol>
+</section></div>
+  <footer>题面据教材校录，参考译文结合配套作业答案按句整理。</footer>
+</main>
+<script>
+const button = document.getElementById("toggle-answers");
+const exercises = document.getElementById("exercises");
+const answers = [...exercises.querySelectorAll(".answer")];
+let selectedPair = null;
+
+button.addEventListener("click", () => {
+  const show = button.getAttribute("aria-pressed") !== "true";
+  button.setAttribute("aria-pressed", String(show));
+  for (const answer of answers) {
+    answer.hidden = !show;
+    const source = answer.previousElementSibling;
+    if (show) source.setAttribute("aria-describedby", answer.id);
+    else source.removeAttribute("aria-describedby");
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const source = event.target.closest(".source");
+  if (selectedPair) selectedPair.classList.remove("is-selected");
+  selectedPair = source ? source.parentElement : null;
+  if (selectedPair) selectedPair.classList.add("is-selected");
+});
+</script>
+</html>
